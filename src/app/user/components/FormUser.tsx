@@ -1,9 +1,9 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Input } from "../../components/Input";
+import { Input } from "../../../components/Input";
 import { userType } from "../../@types/user";
-import { Button } from "../../components/Button";
+import { Button } from "../../../components/Button";
 
 const FormUser = ({ user }: { user?: userType }) => {
   const {

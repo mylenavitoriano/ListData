@@ -1,9 +1,9 @@
-import Container from "../../components/Container";
+import Container from "../../../components/Container";
 import FormUser from "../components/FormUser";
-import Header from "../../components/Header";
+import Header from "../../../components/Header";
 import { GetUserId } from "../../actions/getUserId";
 import { userType } from "../../@types/user";
-import ErrorPage from "../../components/ErrorPage";
+import ErrorPage from "../../../components/ErrorPage";
 
 const EditUser = async ({ params }: { params: { id: string } }) => {
   try {

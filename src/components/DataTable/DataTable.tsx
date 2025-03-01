@@ -6,7 +6,6 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-
 import {
   Table,
   TableBody,
@@ -16,7 +15,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Pagination } from "../Pagination";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -37,9 +36,10 @@ export function DataTable<TData, TValue>({
     }
   };
 
-  const startIndex = (currentPage - 1) * totalPerPage;
-  const endIndex = currentPage * totalPerPage;
-  const currentData = data.slice(startIndex, endIndex);
+  const currentData = useMemo(() => {
+    const startIndex = (currentPage - 1) * totalPerPage;
+    return data.slice(startIndex, startIndex + totalPerPage);
+  }, [currentPage, totalPerPage, data]);
 
   const table = useReactTable({
     data: currentData,
@@ -49,22 +49,20 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <Table>
+      <Table className="mb-4">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                );
-              })}
+              {headerGroup.headers.map((header) => (
+                <TableHead key={header.id}>
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                </TableHead>
+              ))}
             </TableRow>
           ))}
         </TableHeader>

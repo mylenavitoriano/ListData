@@ -9,7 +9,7 @@ import {
   PaginationLink,
 } from "@/components/ui/pagination";
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
-import { useWindowSize } from "../hooks/useWindowSize";
+import { useWindowSize } from "../app/hooks/useWindowSize";
 
 interface PaginationProps {
   totalItems: number;
@@ -46,10 +46,6 @@ export function Pagination({
   const handlePrevious = () => goToPage(currentPage - 1);
   //página seguinte
   const handleNext = () => goToPage(currentPage + 1);
-
-  useEffect(() => {
-    onPageChange(currentPage);
-  }, [currentPage, onPageChange]);
 
   //lógica para mostrar os botões
   const getPageNumbers = () => {
@@ -95,12 +91,11 @@ export function Pagination({
   };
 
   return (
-    <PaginationUI>
+    <PaginationUI className="mt-4">
       <PaginationContent>
         {currentPage != 1 && (
           <PaginationItem>
             <CircleArrowLeft
-              href="#"
               onClick={handlePrevious}
               className="cursor-pointer"
             />
@@ -110,7 +105,6 @@ export function Pagination({
           <PaginationItem key={index}>
             {typeof page === "number" ? (
               <PaginationLink
-                href="#"
                 isActive={currentPage === page}
                 onClick={() => goToPage(page)}
               >
@@ -123,11 +117,7 @@ export function Pagination({
         ))}
         {currentPage != totalPages && (
           <PaginationItem>
-            <CircleArrowRight
-              href="#"
-              onClick={handleNext}
-              className="cursor-pointer"
-            />
+            <CircleArrowRight onClick={handleNext} className="cursor-pointer" />
           </PaginationItem>
         )}
       </PaginationContent>
