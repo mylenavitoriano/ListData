@@ -9,7 +9,7 @@ import {
   PaginationLink,
 } from "@/components/ui/pagination";
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
-import { useWindowSize } from "../app/hooks/useWindowSize";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 interface PaginationProps {
   totalItems: number;
@@ -102,7 +102,7 @@ export function Pagination({
           </PaginationItem>
         )}
         {getPageNumbers().map((page, index) => (
-          <PaginationItem key={index}>
+          <PaginationItem key={index} className="cursor-pointer">
             {typeof page === "number" ? (
               <PaginationLink
                 isActive={currentPage === page}

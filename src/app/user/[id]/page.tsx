@@ -1,8 +1,8 @@
 import Container from "../../../components/Container";
-import FormUser from "../components/FormUser";
+import FormUser from "../../../components/FormUser";
 import Header from "../../../components/Header";
-import { GetUserId } from "../../actions/getUserId";
-import { userType } from "../../@types/user";
+import { GetUserId } from "../../../actions/user";
+import { userType } from "../../../types/user";
 import ErrorPage from "../../../components/ErrorPage";
 
 const EditUser = async ({ params }: { params: { id: string } }) => {
@@ -11,7 +11,7 @@ const EditUser = async ({ params }: { params: { id: string } }) => {
     return (
       <Container>
         <Header />
-        <FormUser user={userData!} />
+        <FormUser user={userData} />
       </Container>
     );
   } catch (error) {

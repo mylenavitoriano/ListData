@@ -1,11 +1,18 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Input } from "../../../components/Input";
-import { userType } from "../../@types/user";
-import { Button } from "../../../components/Button";
+import { Input } from "./Input";
+import { userType } from "../types/user";
+import { Button } from "./Button";
+import { useRouter } from "next/navigation";
+import { PutUser } from "../actions/user";
+import { toast } from "sonner";
+import { revalidateTag } from "next/cache";
 
 const FormUser = ({ user }: { user?: userType }) => {
+  const router = useRouter();
+  const isEdicao = !!user;
+
   const {
     register,
     handleSubmit,
@@ -16,13 +23,22 @@ const FormUser = ({ user }: { user?: userType }) => {
     shouldUnregister: true,
   });
 
-  const onSubmit = (data: userType) => {
-    console.log(data);
+  const onSubmit = async (data: userType) => {
+    if (isEdicao) {
+      const res = await PutUser(data);
+
+      if (res) {
+        toast.success("Usuário atualizado com sucesso.");
+      } else {
+        toast.error("Erro ao atualizar usuário.");
+      }
+    }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="py-4">
       <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-3 ">
+        {isEdicao && <Input label="ID" {...register("id")} disabled />}
         <Input
           label="Nome*"
           {...register("name", { required: "Campo obrigatório!" })}
@@ -72,9 +88,15 @@ const FormUser = ({ user }: { user?: userType }) => {
         />
       </div>
 
-      <div className="flex justify-center gap-2 mt-8">
-        <Button type="button" variant="secondary" onClick={() => reset()}>
-          Descartar
+      <div className="flex justify-end gap-2 mt-8">
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={() => {
+            isEdicao ? router.push("/") : reset();
+          }}
+        >
+          {isEdicao ? "Cancelar" : "Descartar"}
         </Button>
         <Button type="submit">Salvar</Button>
       </div>

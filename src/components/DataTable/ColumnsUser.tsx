@@ -1,7 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { userType } from "../../app/@types/user";
+import { userType } from "../../types/user";
 import { Button } from "../Button";
 import { LucideEdit, LucideTrash } from "lucide-react";
 import Link from "next/link";
