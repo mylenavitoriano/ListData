@@ -7,10 +7,14 @@ import { Button } from "./Button";
 import { useRouter } from "next/navigation";
 import { SetEditUser, SetNewUser } from "../actions/user";
 import { toast } from "sonner";
+import { useState } from "react";
+import Loader from "./Loader";
 
 const FormUser = ({ user }: { user?: userType }) => {
   const router = useRouter();
   const isEdicao = !!user;
+
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -23,7 +27,7 @@ const FormUser = ({ user }: { user?: userType }) => {
   });
 
   const onSubmit = async (data: userType) => {
-    console.log(data);
+    setLoading(true);
     if (isEdicao) {
       const resEdit = await SetEditUser(data);
 
@@ -42,6 +46,8 @@ const FormUser = ({ user }: { user?: userType }) => {
         toast.error("Erro ao cadastrar usuário.");
       }
     }
+
+    setLoading(false);
   };
 
   return (
@@ -104,10 +110,13 @@ const FormUser = ({ user }: { user?: userType }) => {
           onClick={() => {
             isEdicao ? router.push("/") : reset();
           }}
+          disabled={loading}
         >
           {isEdicao ? "Cancelar" : "Limpar"}
         </Button>
-        <Button type="submit">Salvar</Button>
+        <Button type="submit" disabled={loading}>
+          {loading ? <Loader color="primary-foreground" /> : "Salvar"}
+        </Button>
       </div>
     </form>
   );

@@ -1,6 +1,10 @@
 import { cn } from "../lib/utils";
 
-const Loader = ({ color }: { color: "primary" | "destructive-foreground" }) => {
+const Loader = ({
+  color,
+}: {
+  color: "primary" | "primary-foreground" | "destructive-foreground";
+}) => {
   return (
     <svg
       aria-hidden="true"
