@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import ThemeSwitch from "./ThemeSwitch";
-import LogoLight from "../../public/logo-light.png";
-import LogoDark from "../../public/logo-dark.png";
+import LogoLight from "../../public/logo-light.webp";
+import LogoDark from "../../public/logo-dark.webp";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 
@@ -24,6 +24,8 @@ const Header = () => {
           src={theme === "light" ? LogoLight : LogoDark}
           alt="Logo List.Data"
           priority
+          quality={100}
+          height={75}
         />
         <ThemeSwitch />
       </div>
