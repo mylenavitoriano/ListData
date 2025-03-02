@@ -7,7 +7,7 @@ const ButtonNewRegister = () => {
   const router = useRouter();
   return (
     <div className="flex justify-end mb-8">
-      <Button onClick={() => router.push("/user")}>Novo Cadastro</Button>
+      <Button onClick={() => router.push("/new")}>Novo Cadastro</Button>
     </div>
   );
 };

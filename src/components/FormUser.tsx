@@ -104,7 +104,7 @@ const FormUser = ({ user }: { user?: userType }) => {
             isEdicao ? router.push("/") : reset();
           }}
         >
-          {isEdicao ? "Cancelar" : "Descartar"}
+          {isEdicao ? "Cancelar" : "Limpar"}
         </Button>
         <Button type="submit">Salvar</Button>
       </div>

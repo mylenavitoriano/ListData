@@ -27,7 +27,7 @@ export const GetUserId = async (id: number | string) => {
       },
     }
   );
-  if (!res.ok) throw new Error("Erro ao buscar usuários");
+  if (!res.ok) throw new Error("Erro ao buscar usuário");
   return res.json();
 };
 
@@ -45,7 +45,7 @@ export const SetNewUser = async (user: userType) => {
     }
   );
 
-  if (!res.ok) throw new Error("Erro ao atualizar usuário");
+  if (!res.ok) throw new Error("Erro ao cadastrar usuário");
 
   // Revalida os caches depois de atualizar
   revalidateTag("listUsers");
@@ -71,6 +71,22 @@ export const SetEditUser = async (user: userType) => {
 
   // Revalida os caches depois de atualizar
   revalidateTag("userData");
+  revalidateTag("listUsers");
+
+  return res.json();
+};
+
+export const DeleteUser = async (id: string) => {
+  const res = await fetch(
+    `https://67bf2697b2320ee05012c774.mockapi.io/api/alymente/users/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
+
+  if (!res.ok) throw new Error("Erro ao excluir usuário");
+
+  // Revalida os caches depois de atualizar
   revalidateTag("listUsers");
 
   return res.json();
