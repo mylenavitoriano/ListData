@@ -37,6 +37,7 @@ const FormUser = ({ user }: { user?: userType }) => {
 
       if (resNew) {
         toast.success("Usuário cadastrado com sucesso.");
+        reset();
       } else {
         toast.error("Erro ao cadastrar usuário.");
       }
