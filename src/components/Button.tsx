@@ -7,7 +7,7 @@ import {
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     ButtonPropsUI {
-  variant?: "default" | "secondary" | "destructive" | "outline";
+  variant?: "default" | "secondary" | "destructive" | "outline" | "ghost";
 }
 
 export const Button = ({

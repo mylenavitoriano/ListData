@@ -8,7 +8,12 @@ import {
   PaginationItem,
   PaginationLink,
 } from "@/components/ui/pagination";
-import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  CircleArrowLeft,
+  CircleArrowRight,
+} from "lucide-react";
 import { useWindowSize } from "../hooks/useWindowSize";
 
 interface PaginationProps {
@@ -95,10 +100,7 @@ export function Pagination({
       <PaginationContent>
         {currentPage != 1 && (
           <PaginationItem>
-            <CircleArrowLeft
-              onClick={handlePrevious}
-              className="cursor-pointer"
-            />
+            <ChevronLeft onClick={handlePrevious} className="cursor-pointer" />
           </PaginationItem>
         )}
         {getPageNumbers().map((page, index) => (
@@ -118,7 +120,7 @@ export function Pagination({
         ))}
         {currentPage != totalPages && (
           <PaginationItem>
-            <CircleArrowRight onClick={handleNext} className="cursor-pointer" />
+            <ChevronRight onClick={handleNext} className="cursor-pointer" />
           </PaginationItem>
         )}
       </PaginationContent>

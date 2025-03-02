@@ -36,7 +36,7 @@ const ModalDeleteUser = ({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-md w-md md:w-1/2">
+      <DialogContent className="max-w-md w-4/5">
         <DialogHeader>
           <DialogTitle>
             <p className="text-left">Confirmar exclusão</p>

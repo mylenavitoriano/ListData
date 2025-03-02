@@ -1,6 +1,6 @@
 "use client";
 
-import { LucidePencil, LucideTrash } from "lucide-react";
+import { LucidePencil, LucideTrash, MoreHorizontal } from "lucide-react";
 import { Button } from "../Button";
 import { useRouter } from "next/navigation";
 import ModalDeleteUser from "../ModalDeleteUser";
@@ -12,7 +12,7 @@ const ActionTableUser = ({ id, name }: { id: string; name: string }) => {
 
   return (
     <>
-      <div className="flex gap-2">
+      <div className="flex gap-2 justify-end">
         <Button
           variant="outline"
           size="icon"

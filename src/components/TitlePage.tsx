@@ -1,6 +1,6 @@
 "use client";
 
-import { LucideArrowLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { Button } from "./Button";
 import { useRouter } from "next/navigation";
 
@@ -14,7 +14,7 @@ const TitlePage = ({ title }: { title: string }) => {
         onClick={() => route.back()}
         className="absolute left-0"
       >
-        <LucideArrowLeft />
+        <ChevronLeft />
       </Button>
       <p className="text-center text-lg font-semibold">{title}</p>
     </div>
