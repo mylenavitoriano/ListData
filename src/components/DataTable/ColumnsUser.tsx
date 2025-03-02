@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { userType } from "../../types/user";
 import { Button } from "../Button";
-import { LucideEdit, LucideTrash } from "lucide-react";
+import { LucidePencil, LucideTrash } from "lucide-react";
 import Link from "next/link";
 
 export const columns: ColumnDef<userType>[] = [
@@ -22,7 +22,7 @@ export const columns: ColumnDef<userType>[] = [
           </Button>
           <Link href={`/user/${id}`}>
             <Button variant="outline" size="icon" className="border-primary">
-              <LucideEdit className="text-primary" />
+              <LucidePencil className="text-primary" />
             </Button>
           </Link>
         </div>

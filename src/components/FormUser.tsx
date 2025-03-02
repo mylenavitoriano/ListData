@@ -5,9 +5,8 @@ import { Input } from "./Input";
 import { userType } from "../types/user";
 import { Button } from "./Button";
 import { useRouter } from "next/navigation";
-import { PutUser } from "../actions/user";
+import { SetEditUser, SetNewUser } from "../actions/user";
 import { toast } from "sonner";
-import { revalidateTag } from "next/cache";
 
 const FormUser = ({ user }: { user?: userType }) => {
   const router = useRouter();
@@ -24,13 +23,22 @@ const FormUser = ({ user }: { user?: userType }) => {
   });
 
   const onSubmit = async (data: userType) => {
+    console.log(data);
     if (isEdicao) {
-      const res = await PutUser(data);
+      const resEdit = await SetEditUser(data);
 
-      if (res) {
+      if (resEdit) {
         toast.success("Usuário atualizado com sucesso.");
       } else {
         toast.error("Erro ao atualizar usuário.");
+      }
+    } else {
+      const resNew = await SetNewUser(data);
+
+      if (resNew) {
+        toast.success("Usuário cadastrado com sucesso.");
+      } else {
+        toast.error("Erro ao cadastrar usuário.");
       }
     }
   };
@@ -70,8 +78,8 @@ const FormUser = ({ user }: { user?: userType }) => {
         />
         <Input
           label="País*"
-          {...register("company", { required: "Campo obrigatório!" })}
-          error={errors.company?.message}
+          {...register("country", { required: "Campo obrigatório!" })}
+          error={errors.country?.message}
           placeholder="Digite o país"
         />
         <Input

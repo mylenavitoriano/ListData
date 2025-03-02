@@ -107,6 +107,7 @@ export function Pagination({
               <PaginationLink
                 isActive={currentPage === page}
                 onClick={() => goToPage(page)}
+                className={`${currentPage === page && "border-primary"}`}
               >
                 {page}
               </PaginationLink>

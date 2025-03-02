@@ -31,7 +31,29 @@ export const GetUserId = async (id: number | string) => {
   return res.json();
 };
 
-export const PutUser = async (user: userType) => {
+export const SetNewUser = async (user: userType) => {
+  const { id, ...userData } = user;
+
+  const res = await fetch(
+    `https://67bf2697b2320ee05012c774.mockapi.io/api/alymente/users`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    }
+  );
+
+  if (!res.ok) throw new Error("Erro ao atualizar usuário");
+
+  // Revalida os caches depois de atualizar
+  revalidateTag("listUsers");
+
+  return res.json();
+};
+
+export const SetEditUser = async (user: userType) => {
   const { id, ...userData } = user;
 
   const res = await fetch(

@@ -4,6 +4,7 @@ import Header from "../../../components/Header";
 import { GetUserId } from "../../../actions/user";
 import { userType } from "../../../types/user";
 import ErrorPage from "../../../components/ErrorPage";
+import TitlePage from "../../../components/TitlePage";
 
 const EditUser = async ({ params }: { params: { id: string } }) => {
   try {
@@ -11,6 +12,7 @@ const EditUser = async ({ params }: { params: { id: string } }) => {
     return (
       <Container>
         <Header />
+        <TitlePage title="Editar Dados" />
         <FormUser user={userData} />
       </Container>
     );
