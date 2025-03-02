@@ -42,7 +42,7 @@ const ModalDeleteUser = ({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-md w-4/5">
+      <DialogContent className="max-w-md w-4/5 rounded-sm">
         <DialogHeader>
           <DialogTitle>
             <p className="text-left">Confirmação de exclusão</p>
@@ -67,7 +67,7 @@ const ModalDeleteUser = ({
               disabled={loading}
             >
               {loading ? (
-                <Loader color="destructive-foreground" />
+                <Loader color="fill-destructive-foreground" />
               ) : (
                 "Sim, excluir"
               )}

@@ -3,14 +3,17 @@ import { cn } from "../lib/utils";
 const Loader = ({
   color,
 }: {
-  color: "primary" | "primary-foreground" | "destructive-foreground";
+  color:
+    | "fill-primary"
+    | "fill-primary-foreground"
+    | "fill-destructive-foreground";
 }) => {
   return (
     <svg
       aria-hidden="true"
       className={cn(
         "w-8 h-8 text-gray-200 animate-spin dark:text-secondary",
-        `fill-${color}`
+        color
       )}
       viewBox="0 0 100 101"
       fill="none"

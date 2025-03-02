@@ -40,9 +40,7 @@ export const columns: ColumnDef<userType>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      return (
-        <ActionTableUser id={row.getValue("id")} name={row.getValue("name")} />
-      );
+      return <ActionTableUser user={row.original} />;
     },
   },
 ];

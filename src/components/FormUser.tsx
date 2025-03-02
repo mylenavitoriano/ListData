@@ -115,7 +115,7 @@ const FormUser = ({ user }: { user?: userType }) => {
           {isEdicao ? "Cancelar" : "Limpar"}
         </Button>
         <Button type="submit" disabled={loading}>
-          {loading ? <Loader color="primary-foreground" /> : "Salvar"}
+          {loading ? <Loader color="fill-primary-foreground" /> : "Salvar"}
         </Button>
       </div>
     </form>

@@ -1,23 +1,41 @@
 "use client";
 
-import { LucidePencil, LucideTrash, MoreHorizontal } from "lucide-react";
+import {
+  Ellipsis,
+  LucidePencil,
+  LucideTrash,
+  MoreHorizontal,
+} from "lucide-react";
 import { Button } from "../Button";
 import { useRouter } from "next/navigation";
 import ModalDeleteUser from "../ModalDeleteUser";
 import { useState } from "react";
 
-const ActionTableUser = ({ id, name }: { id: string; name: string }) => {
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import ModalUserInfo from "../ModalUserInfo";
+import { userType } from "../../types/user";
+
+const ActionTableUser = ({ user }: { user: userType }) => {
   const router = useRouter();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalInfoOpen, setIsModalInfoOpen] = useState(false);
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
 
   return (
     <>
-      <div className="flex gap-2 justify-end">
+      <div className="hidden sm:flex gap-2 justify-end">
         <Button
           variant="outline"
           size="icon"
           className="border-destructive"
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => setIsModalDeleteOpen(true)}
         >
           <LucideTrash className="text-destructive" />
         </Button>
@@ -25,17 +43,33 @@ const ActionTableUser = ({ id, name }: { id: string; name: string }) => {
           variant="outline"
           size="icon"
           className="border-primary"
-          onClick={() => router.push(`/edit/${id}`)}
+          onClick={() => router.push(`/edit/${user.id}`)}
         >
           <LucidePencil className="text-primary" />
         </Button>
       </div>
 
+      <Button
+        variant="outline"
+        size="icon"
+        onClick={() => setIsModalInfoOpen(true)}
+        className="sm:hidden"
+      >
+        <Ellipsis />
+      </Button>
+
+      <ModalUserInfo
+        user={user}
+        open={isModalInfoOpen}
+        setOpen={setIsModalInfoOpen}
+        setOpenModalDelete={setIsModalDeleteOpen}
+      />
+
       <ModalDeleteUser
-        id={id}
-        name={name}
-        open={isModalOpen}
-        setOpen={setIsModalOpen}
+        id={user.id}
+        name={user.name}
+        open={isModalDeleteOpen}
+        setOpen={setIsModalDeleteOpen}
       />
     </>
   );
