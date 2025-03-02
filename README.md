@@ -28,11 +28,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-List.Data é uma aplicação web que exibe uma lista de usuários, permitindo adicionar, editar e excluir registros de forma fácil e organizada. Os dados são carregados de uma API e apresentados de maneira clara, com paginação para facilitar a navegação.
-
-A interface é moderna e responsiva, garantindo uma boa experiência tanto no desktop quanto no celular. Além disso, há um formulário validado para cadastro e edição de usuários, além de um modal de confirmação para exclusões.
-
-O List.Data foi desenvolvido para ser intuitivo e eficiente, tornando a gestão de usuários mais simples e acessível.
+O List.Data é uma aplicação web que permite visualizar, adicionar, editar e excluir usuários de maneira fácil e organizada. Os dados são carregados automaticamente e exibidos de forma clara, com páginas para facilitar a navegação. A interface é moderna e se adapta bem a qualquer dispositivo, proporcionando uma boa experiência tanto no computador quanto no celular.
 
 ## 🔖 Layout
 
