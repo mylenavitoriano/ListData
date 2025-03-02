@@ -28,36 +28,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-List.Data é uma aplicação web que exibe uma lista de usuários, permitindo adicionar, editar e excluir registros de forma fácil e organizada. Os dados são carregados de uma API e apresentados de maneira clara, com paginação para facilitar a navegação.
-
-A interface é moderna e responsiva, garantindo uma boa experiência tanto no desktop quanto no celular. Além disso, há um formulário validado para cadastro e edição de usuários, além de um modal de confirmação para exclusões.
-
-O List.Data foi desenvolvido para ser intuitivo e eficiente, tornando a gestão de usuários mais simples e acessível.
+O List.Data é uma aplicação web que permite visualizar, adicionar, editar e excluir usuários de maneira fácil e organizada. Os dados são carregados automaticamente e exibidos de forma clara, com páginas para facilitar a navegação. A interface é moderna e se adapta bem a qualquer dispositivo, proporcionando uma boa experiência tanto no computador quanto no celular.
 
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/design/kKPDADBlNAuNA4Jb6kuy6B/List.Data?node-id=0-1&t=vj7iHEyRXblANSQc-1).
-
-## ↔️ Fluxo
-
-1. Início (Home):
-
-- Exibe uma lista de usuários com paginação.
-- Permite acessar a página de criação para adicionar novos usuários.
-- Disponibiliza opções para editar ou excluir usuários da lista.
-- Inclui uma modal de confimação de exclusão ao clicar no botão de exclusão.
-
-2. Criação (New):
-
-- Apresenta um formulário para cadastrar um novo usuário.
-- Valida os campos obrigatórios antes de permitir o envio.
-- Permite descartar/limpar os dados preenchidos no formulário.
-
-3. Edição (Edit):
-
-- Exibe os detalhes de um usuário já cadastrado.
-- Permite modificar as informações e salvar as alterações.
-- Possibilita retornar à página inicial caso não deseje realizar a edição.
 
 ## 🏗️ Decisões Arquiteturais
 
