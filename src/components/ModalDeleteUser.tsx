@@ -11,6 +11,8 @@ import { DialogClose } from "@radix-ui/react-dialog";
 import { Button } from "./Button";
 import { DeleteUser } from "../actions/user";
 import { toast } from "sonner";
+import { useState } from "react";
+import Loader from "./Loader";
 
 const ModalDeleteUser = ({
   id,
@@ -23,7 +25,9 @@ const ModalDeleteUser = ({
   open: boolean;
   setOpen: (state: boolean) => void;
 }) => {
+  const [loading, setLoading] = useState(false);
   const deleteUser = async () => {
+    setLoading(true);
     const res = await DeleteUser(id);
 
     if (res) {
@@ -32,6 +36,8 @@ const ModalDeleteUser = ({
     } else {
       toast.error("Erro ao excluir usuário.");
     }
+
+    setLoading(false);
   };
 
   return (
@@ -51,12 +57,20 @@ const ModalDeleteUser = ({
         <DialogFooter className="justify-end">
           <div className="flex flex-row justify-end gap-2">
             <DialogClose asChild>
-              <Button type="button" variant="secondary">
+              <Button type="button" variant="secondary" disabled={loading}>
                 Cancelar
               </Button>
             </DialogClose>
-            <Button variant="destructive" onClick={() => deleteUser()}>
-              Sim, excluir
+            <Button
+              variant="destructive"
+              onClick={() => deleteUser()}
+              disabled={loading}
+            >
+              {loading ? (
+                <Loader color="destructive-foreground" />
+              ) : (
+                "Sim, excluir"
+              )}
             </Button>
           </div>
         </DialogFooter>

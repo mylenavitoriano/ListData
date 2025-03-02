@@ -3,6 +3,7 @@ import {
   Button as ButtonUI,
   ButtonProps as ButtonPropsUI,
 } from "@/components/ui/button";
+import { cn } from "../lib/utils";
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
@@ -24,7 +25,7 @@ export const Button = ({
     <ButtonUI
       type={type}
       variant={variant}
-      className={className}
+      className={cn("text-base", className)}
       disabled={disabled}
       onClick={type === "button" ? onClick : undefined}
       onSubmit={type === "submit" ? onSubmit : undefined}

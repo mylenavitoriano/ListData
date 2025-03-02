@@ -25,7 +25,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <InputUI
             ref={ref}
             className={cn(
-              "flex-1",
+              "flex-1 bg-input h-10 md:h-9 text-sm md:text-base",
               className,
               error != "" && "border-destructive"
             )}
