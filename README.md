@@ -72,7 +72,7 @@ src/
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/mylenavitoriano/FrontendTest.git
+git clone https://github.com/mylenavitoriano/List.Data.git
 
 # Entrar no diretório
 cd frontend-test
