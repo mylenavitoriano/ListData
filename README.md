@@ -30,7 +30,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O List.Data é uma aplicação web que permite visualizar, adicionar, editar e excluir usuários de maneira fácil e organizada. Os dados são carregados automaticamente e exibidos de forma clara, com páginas para facilitar a navegação. A interface é moderna e se adapta bem a qualquer dispositivo, proporcionando uma boa experiência tanto no computador quanto no celular.
 
-Você pode acessar o projeto online através da URL [https://frontend-test-one-fawn.vercel.app/](https://frontend-test-one-fawn.vercel.app/)
+Você pode acessar o projeto online através da URL [https://list-data-frontend.vercel.app/](https://list-data-frontend.vercel.app/)
 
 ## 🔖 Layout
 
