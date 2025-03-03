@@ -25,6 +25,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Tailwind
 - Shadcn
 - React Hook Form
+- TanStack Table
 
 ## 💻 Projeto
 
