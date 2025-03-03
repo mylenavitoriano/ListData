@@ -49,7 +49,7 @@ const ModalDeleteUser = ({
           </DialogTitle>
           <DialogDescription className="py-4">
             <p className="text-left">
-              Tem certeza de que deseja excluir o usuário{" "}
+              <span>Tem certeza de que deseja excluir o usuário </span>
               <strong>{name}</strong>?
             </p>
           </DialogDescription>
