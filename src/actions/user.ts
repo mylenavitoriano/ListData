@@ -2,19 +2,27 @@
 
 import { revalidateTag } from "next/cache";
 import { userType } from "../types/user";
+import { toast } from "sonner";
 
 export const GetListUsers = async () => {
-  const res = await fetch(
-    "https://67bf2697b2320ee05012c774.mockapi.io/api/alymente/users",
-    {
-      cache: "no-cache",
-      next: {
-        tags: ["listUsers"],
-      },
+  try {
+    const res = await fetch(
+      "https://67bf2697b2320ee05012c774.mockapi.io/api/alymente/users",
+      {
+        cache: "no-cache",
+        next: { tags: ["listUsers"] },
+      }
+    );
+
+    if (!res.ok) {
+      return null;
     }
-  );
-  if (!res.ok) throw new Error("Erro ao buscar usuários");
-  return res.json();
+
+    const data: userType[] = await res.json();
+    return data;
+  } catch (error) {
+    return null;
+  }
 };
 
 export const GetUserId = async (id: number | string) => {
