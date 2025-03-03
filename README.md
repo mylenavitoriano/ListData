@@ -72,10 +72,10 @@ src/
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/mylenavitoriano/List.Data.git
+git clone https://github.com/mylenavitoriano/ListData.git
 
 # Entrar no diretório
-cd frontend-test
+cd ListData
 
 # Baixar as dependências (npm || yarn)
 npm install
